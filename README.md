@@ -46,7 +46,7 @@
 ## 4. 快速复现
 
 ```bash
-git clone https://github.com/<你的用户名>/kuwapipe.git
+git clone https://github.com/wellwind307/kuwapipe.git
 cd kuwapipe
 ```
 
