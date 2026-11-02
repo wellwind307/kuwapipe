@@ -1,0 +1,1108 @@
+{
+    "graphjs": {
+        "version": "1.0",
+        "keys": [
+            {
+                "abrv": "VH",
+                "name": "vert_hid",
+                "type": "int",
+                "for": "node"
+            },
+            {
+                "abrv": "VM",
+                "name": "vert_name",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "VT",
+                "name": "vert_type",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "BA",
+                "name": "base_addr",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "HA",
+                "name": "high_addr",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "BP",
+                "name": "base_param",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "HP",
+                "name": "high_param",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "MA",
+                "name": "master_addrspace",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "MX",
+                "name": "master_instance",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "MI",
+                "name": "master_interface",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "MS",
+                "name": "master_segment",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "MV",
+                "name": "master_vlnv",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "SX",
+                "name": "slave_instance",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "SI",
+                "name": "slave_interface",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "MM",
+                "name": "slave_memmap",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "SS",
+                "name": "slave_segment",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "SV",
+                "name": "slave_vlnv",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "TM",
+                "name": "memory_type",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "TU",
+                "name": "usage_type",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "LT",
+                "name": "lock_type",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "BT",
+                "name": "boot_type",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "PT",
+                "name": "peripheral_type",
+                "type": "string",
+                "for": "node"
+            },
+            {
+                "abrv": "EH",
+                "name": "edge_hid",
+                "type": "int",
+                "for": "edge"
+            }
+        ],
+        "vertice_type_order": [
+            {
+                "abrv": "BC",
+                "desc": "Block Container"
+            },
+            {
+                "abrv": "PR",
+                "desc": "Parital Reference"
+            },
+            {
+                "abrv": "VR",
+                "desc": "Variant"
+            },
+            {
+                "abrv": "PM",
+                "desc": "Variant Permutations"
+            },
+            {
+                "abrv": "CX",
+                "desc": "Boundary Connection"
+            },
+            {
+                "abrv": "AC",
+                "desc": "Assignment Coordinate"
+            },
+            {
+                "abrv": "ACE",
+                "desc": "Excluded Assign Coordinate"
+            },
+            {
+                "abrv": "APX",
+                "desc": "Boundary Aperture"
+            },
+            {
+                "abrv": "CIP",
+                "desc": "High level Processing System"
+            }
+        ],
+        "vertices": {
+            "V0": {
+                "VM": "base",
+                "VT": "BC"
+            },
+            "V1": {
+                "VH": "2",
+                "VM": "base",
+                "VT": "VR"
+            },
+            "V2": {
+                "VH": "2",
+                "VT": "PM",
+                "TU": "active"
+            },
+            "V3": {
+                "VT": "AC",
+                "BA": "0x00000000",
+                "HA": "0x00001FFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "DLMB",
+                "MS": "SEG_lmb_bram_if_cntlr_Mem",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/lmb/lmb_bram_if_cntlr",
+                "SI": "SLMB1",
+                "SS": "Mem",
+                "SV": "xilinx.com:ip:lmb_bram_if_cntlr:4.0",
+                "TM": "data",
+                "TU": "memory"
+            },
+            "V4": {
+                "VT": "AC",
+                "BA": "0x00000000",
+                "HA": "0x00001FFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Instruction",
+                "MX": "/iop_arduino/mb",
+                "MI": "ILMB",
+                "MS": "SEG_lmb_bram_if_cntlr_Mem",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/lmb/lmb_bram_if_cntlr",
+                "SI": "SLMB",
+                "SS": "Mem",
+                "SV": "xilinx.com:ip:lmb_bram_if_cntlr:4.0",
+                "TM": "instruction",
+                "TU": "memory"
+            },
+            "V5": {
+                "VT": "AC",
+                "BA": "0x00010000",
+                "HA": "0x0001FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_intr_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/intr",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V6": {
+                "VT": "AC",
+                "BA": "0x00020000",
+                "HA": "0x0002FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_arduino_gpio_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/arduino_gpio",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V7": {
+                "VT": "AC",
+                "BA": "0x20000000",
+                "HA": "0x3FFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_ps7_0_GP0_DDR_LOWOCM",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/ps7_0",
+                "SI": "S_AXI_GP0",
+                "SS": "GP0_DDR_LOWOCM",
+                "SV": "xilinx.com:ip:processing_system7:5.5",
+                "TM": "data",
+                "TU": "memory"
+            },
+            "V8": {
+                "VT": "AC",
+                "BA": "0x20000000",
+                "HA": "0x3FFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data_MM2S",
+                "MX": "/video/axi_vdma",
+                "MI": "M_AXI_MM2S",
+                "MS": "SEG_ps7_0_HP0_DDR_LOWOCM",
+                "MV": "xilinx.com:ip:axi_vdma:6.3",
+                "SX": "/ps7_0",
+                "SI": "S_AXI_HP0",
+                "SS": "HP0_DDR_LOWOCM",
+                "SV": "xilinx.com:ip:processing_system7:5.5",
+                "TM": "both",
+                "TU": "memory"
+            },
+            "V9": {
+                "VT": "AC",
+                "BA": "0x20000000",
+                "HA": "0x3FFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data_S2MM",
+                "MX": "/video/axi_vdma",
+                "MI": "M_AXI_S2MM",
+                "MS": "SEG_ps7_0_HP0_DDR_LOWOCM",
+                "MV": "xilinx.com:ip:axi_vdma:6.3",
+                "SX": "/ps7_0",
+                "SI": "S_AXI_HP0",
+                "SS": "HP0_DDR_LOWOCM",
+                "SV": "xilinx.com:ip:processing_system7:5.5",
+                "TM": "both",
+                "TU": "memory"
+            },
+            "V10": {
+                "VT": "AC",
+                "BA": "0x40000000",
+                "HA": "0x4000FFFF",
+                "BP": "C_S_AXI_CONTROL_BASEADDR",
+                "HP": "C_S_AXI_CONTROL_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_pixel_unpack_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/hdmi_out/pixel_unpack",
+                "SI": "s_axi_control",
+                "SS": "Reg",
+                "SV": "xilinx.com:hls:pixel_unpack:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V11": {
+                "VT": "AC",
+                "BA": "0x40000000",
+                "HA": "0x7FFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_ps7_0_GP0_M_AXI_GP0",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/ps7_0",
+                "SI": "S_AXI_GP0",
+                "SS": "GP0_M_AXI_GP0",
+                "SV": "xilinx.com:ip:processing_system7:5.5",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V12": {
+                "VT": "AC",
+                "BA": "0x40010000",
+                "HA": "0x4001FFFF",
+                "BP": "C_S_AXI_CONTROL_BASEADDR",
+                "HP": "C_S_AXI_CONTROL_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_color_convert_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/hdmi_out/color_convert",
+                "SI": "s_axi_control",
+                "SS": "Reg",
+                "SV": "xilinx.com:hls:color_convert:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V13": {
+                "VT": "AC",
+                "BA": "0x40020000",
+                "HA": "0x4002FFFF",
+                "BP": "C_S_AXI_CONTROL_BASEADDR",
+                "HP": "C_S_AXI_CONTROL_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_color_convert_Reg_1",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/camera_in/color_convert",
+                "SI": "s_axi_control",
+                "SS": "Reg",
+                "SV": "xilinx.com:hls:color_convert:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V14": {
+                "VT": "AC",
+                "BA": "0x40030000",
+                "HA": "0x4003FFFF",
+                "BP": "C_S_AXI_CONTROL_BASEADDR",
+                "HP": "C_S_AXI_CONTROL_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_pixel_pack_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/camera_in/pixel_pack",
+                "SI": "s_axi_control",
+                "SS": "Reg",
+                "SV": "xilinx.com:hls:pixel_pack:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V15": {
+                "VT": "AC",
+                "BA": "0x40040000",
+                "HA": "0x4004FFFF",
+                "BP": "C_S_AXI_CONTROL_BASEADDR",
+                "HP": "C_S_AXI_CONTROL_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_median_blur_color_0_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/camera_in/median_blur_color_0",
+                "SI": "s_axi_control",
+                "SS": "Reg",
+                "SV": "xilinx.com:hls:median_blur_color:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V16": {
+                "VT": "AC",
+                "BA": "0x41200000",
+                "HA": "0x4120FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_hdmi_out_hpd_video_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/hdmi_out/frontend/hdmi_out_hpd_video",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V17": {
+                "VT": "AC",
+                "BA": "0x41210000",
+                "HA": "0x4121FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_touch_gpio_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/touch_gpio",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V18": {
+                "VT": "AC",
+                "BA": "0x41220000",
+                "HA": "0x4122FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_btns_gpio_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/btns_gpio",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V19": {
+                "VT": "AC",
+                "BA": "0x41230000",
+                "HA": "0x4123FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_leds_gpio_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/leds_gpio",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V20": {
+                "VT": "AC",
+                "BA": "0x41240000",
+                "HA": "0x4124FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_beep_gpio_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/beep_gpio",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V21": {
+                "VT": "AC",
+                "BA": "0x41600000",
+                "HA": "0x4160FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_cam_iic_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/cam_iic",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_iic:2.1",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V22": {
+                "VT": "AC",
+                "BA": "0x41800000",
+                "HA": "0x4180FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_axi_intc_0_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/axi_intc_0",
+                "SI": "s_axi",
+                "MM": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_intc:4.1",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V23": {
+                "VT": "AC",
+                "BA": "0x43000000",
+                "HA": "0x4300FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_axi_vdma_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/axi_vdma",
+                "SI": "S_AXI_LITE",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_vdma:6.3",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V24": {
+                "VT": "AC",
+                "BA": "0x43110000",
+                "HA": "0x43111FFF",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_mb_bram_ctrl_Mem0",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/iop_arduino/mb_bram_ctrl",
+                "SI": "S_AXI",
+                "SS": "Mem0",
+                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
+                "TM": "both",
+                "TU": "memory"
+            },
+            "V25": {
+                "VT": "AC",
+                "BA": "0x43C00000",
+                "HA": "0x43C0FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_vtc_out_Reg",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/hdmi_out/frontend/vtc_out",
+                "SI": "ctrl",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:v_tc:6.2",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V26": {
+                "VT": "AC",
+                "BA": "0x43C10000",
+                "HA": "0x43C1FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_axi_dynclk_reg0",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/video/hdmi_out/frontend/axi_dynclk",
+                "SI": "s00_axi",
+                "SS": "reg0",
+                "SV": "digilentinc.com:ip:axi_dynclk:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V27": {
+                "VT": "AC",
+                "BA": "0x43C20000",
+                "HA": "0x43C2FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/ps7_0",
+                "MI": "M_AXI_GP0",
+                "MS": "SEG_audio_codec_ctrl_0_reg0",
+                "MV": "xilinx.com:ip:processing_system7:5.5",
+                "SX": "/audio_codec_ctrl_0",
+                "SI": "S_AXI",
+                "SS": "reg0",
+                "SV": "xilinx.com:user:audio_codec_ctrl:1.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V28": {
+                "VT": "AC",
+                "BA": "0x80000000",
+                "HA": "0x8000FFFF",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_io_switch_S_AXI_reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/io_switch",
+                "SI": "S_AXI",
+                "SS": "S_AXI_reg",
+                "SV": "xilinx.com:user:io_switch:1.1",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V29": {
+                "VT": "AC",
+                "BA": "0x80010000",
+                "HA": "0x8001FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_intc_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/intc",
+                "SI": "s_axi",
+                "MM": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_intc:4.1",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V30": {
+                "VT": "AC",
+                "BA": "0x80020000",
+                "HA": "0x8002FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_uartlite_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/uartlite",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_uartlite:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V31": {
+                "VT": "AC",
+                "BA": "0x80030000",
+                "HA": "0x8003FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_timer_4_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/timers_subsystem/timer_4",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_timer:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V32": {
+                "VT": "AC",
+                "BA": "0x80040000",
+                "HA": "0x8004FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_spi_direct_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/spi_subsystem/spi_direct",
+                "SI": "AXI_LITE",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_quad_spi:3.2",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V33": {
+                "VT": "AC",
+                "BA": "0x80050000",
+                "HA": "0x8005FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_timer_3_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/timers_subsystem/timer_3",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_timer:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V34": {
+                "VT": "AC",
+                "BA": "0x80060000",
+                "HA": "0x8006FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_spi_shared_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/spi_subsystem/spi_shared",
+                "SI": "AXI_LITE",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_quad_spi:3.2",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V35": {
+                "VT": "AC",
+                "BA": "0x80070000",
+                "HA": "0x8007FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_timer_1_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/timers_subsystem/timer_1",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_timer:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V36": {
+                "VT": "AC",
+                "BA": "0x80080000",
+                "HA": "0x8008FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_timer_2_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/timers_subsystem/timer_2",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_timer:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V37": {
+                "VT": "AC",
+                "BA": "0x80090000",
+                "HA": "0x8009FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_timer_5_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/timers_subsystem/timer_5",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_timer:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V38": {
+                "VT": "AC",
+                "BA": "0x800A0000",
+                "HA": "0x800AFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_xadc_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/xadc",
+                "SI": "s_axi_lite",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:xadc_wiz:3.3",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V39": {
+                "VT": "AC",
+                "BA": "0x800B0000",
+                "HA": "0x800BFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_timer_0_Reg",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/iop_arduino/timers_subsystem/timer_0",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_timer:2.0",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V40": {
+                "VT": "AC",
+                "BA": "0xE0000000",
+                "HA": "0xE03FFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_ps7_0_GP0_IOP",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/ps7_0",
+                "SI": "S_AXI_GP0",
+                "SS": "GP0_IOP",
+                "SV": "xilinx.com:ip:processing_system7:5.5",
+                "TM": "data",
+                "TU": "register"
+            },
+            "V41": {
+                "VT": "AC",
+                "BA": "0xFC000000",
+                "HA": "0xFCFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "Data",
+                "MX": "/iop_arduino/mb",
+                "MI": "M_AXI_DP",
+                "MS": "SEG_ps7_0_GP0_QSPI_LINEAR",
+                "MV": "xilinx.com:ip:microblaze:11.0",
+                "SX": "/ps7_0",
+                "SI": "S_AXI_GP0",
+                "SS": "GP0_QSPI_LINEAR",
+                "SV": "xilinx.com:ip:processing_system7:5.5",
+                "TM": "data",
+                "TU": "memory"
+            }
+        },
+        "edges": [
+            {
+                "src": "V0",
+                "trg": "V1"
+            },
+            {
+                "src": "V1",
+                "trg": "V2"
+            },
+            {
+                "src": "V3",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V4",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V5",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V6",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V7",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V8",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V9",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V10",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V11",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V12",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V13",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V14",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V15",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V16",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V17",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V18",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V19",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V20",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V21",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V22",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V23",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V24",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V25",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V26",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V27",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V28",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V29",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V30",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V31",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V32",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V33",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V34",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V35",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V36",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V37",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V38",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V39",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V40",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V41",
+                "trg": "V2",
+                "EH": "2"
+            }
+        ]
+    }
+}

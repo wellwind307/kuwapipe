@@ -1,0 +1,25 @@
+// ==============================================================
+// Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2025.2 (64-bit)
+// Tool Version Limit: 2025.11
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+// 
+// ==============================================================
+// control
+// 0x00 : reserved
+// 0x04 : reserved
+// 0x08 : reserved
+// 0x0c : reserved
+// 0x10 : Data signal of rows
+//        bit 31~0 - rows[31:0] (Read/Write)
+// 0x14 : reserved
+// 0x18 : Data signal of cols
+//        bit 31~0 - cols[31:0] (Read/Write)
+// 0x1c : reserved
+// (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
+
+#define XMEDIAN_BLUR_COLOR_CONTROL_ADDR_ROWS_DATA 0x10
+#define XMEDIAN_BLUR_COLOR_CONTROL_BITS_ROWS_DATA 32
+#define XMEDIAN_BLUR_COLOR_CONTROL_ADDR_COLS_DATA 0x18
+#define XMEDIAN_BLUR_COLOR_CONTROL_BITS_COLS_DATA 32
+

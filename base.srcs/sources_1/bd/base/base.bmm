@@ -1,0 +1,21 @@
+WORKFLOW_OPERATION simulation,dialog;
+
+DEFINE_MEMORY_TYPE iop_arduino_lmb_lmb_bram_MEM_DEVICE [0x00002000] 32;
+DEFINE_MEMORY_TYPE iop_arduino_lmb_lmb_bram_8K_1_MEM_DEVICE [0x00002000] 32;
+
+ADDRESS_MAP iop_arduino_mb MICROBLAZE-LE 100 iop_arduino/mb
+   ADDRESS_SPACE iop_arduino_lmb_lmb_bram_ADDR_SPACE iop_arduino_lmb_lmb_bram_MEM_DEVICE  [0x00000000:0x00001FFF] iop_arduino/lmb/lmb_bram_if_cntlr
+     BUS_BLOCK
+      iop_arduino_lmb_lmb_bram_BUS_BLK [31:0] INPUT = "base_lmb_bram_0.mem";
+     END_BUS_BLOCK;
+   END_ADDRESS_SPACE;
+END_ADDRESS_MAP;
+
+ADDRESS_MAP ps7_0 ARM 100 ps7_0
+   ADDRESS_SPACE iop_arduino_lmb_lmb_bram_8K_1_ADDR_SPACE iop_arduino_lmb_lmb_bram_8K_1_MEM_DEVICE  [0x43110000:0x43111FFF] iop_arduino/mb_bram_ctrl
+     BUS_BLOCK
+      iop_arduino_lmb_lmb_bram_8K_1_BUS_BLK [31:0] INPUT = "base_lmb_bram_0.mem";
+     END_BUS_BLOCK;
+   END_ADDRESS_SPACE;
+END_ADDRESS_MAP;
+

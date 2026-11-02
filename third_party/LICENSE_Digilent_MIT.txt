@@ -1,0 +1,34 @@
+Digilent vivado-library — MIT License
+=====================================
+
+Applies to:  rgb2dvi (ip_repo/rgb2dvi_v1_4), axi_dynclk (ip_repo/axi_dynclk_v1_0),
+             if/pmod_v1_0, if/tmds_v1_0
+Source:      https://github.com/Digilent/vivado-library  (License.txt)
+
+NOTE: the file rgb2dvi.vhd carries its own BSD 3-Clause header
+      (c) 2014 Copyright Digilent Incorporated — see
+      LICENSE_Digilent_BSD-3_rgb2dvi.txt.  Both licenses require the
+      copyright notice and permission notice to be retained.
+
+--------------------------------------------------------------------------
+MIT License
+
+Copyright (c) 2017 Digilent
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -1,0 +1,29 @@
+# 统一换行符，避免 Windows 上换行被改成 CRLF 污染 diff
+* text=auto eol=lf
+
+# 源码按文本处理（GitHub 语言统计与语法高亮依赖这个）
+*.v       text
+*.vh      text
+*.sv      text
+*.vhd     text
+*.vhdl    text
+*.tcl     text
+*.xdc     text
+*.py      text
+*.md      text
+*.json    text
+*.qsf     text
+
+# Windows 批处理必须用 CRLF，否则个别情况下 cmd 解析异常
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+
+# 二进制成品，不做换行转换、不参与 diff
+*.bit     binary
+*.hwh     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.pdf     binary
+*.docx    binary
+*.zip     binary

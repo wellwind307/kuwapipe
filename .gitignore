@@ -1,0 +1,76 @@
+# =============================================================================
+#  KuwaPIPE / Vivado 工程 .gitignore
+#
+#  原则：只跟踪"源码 + 文档 + 已验证的成品"，构建产物一律不入库。
+#  Vivado 的 .runs/.cache/.hw/.Xil 一跑综合就是几百 MB，且与本机路径绑定，
+#  提交进来既超 GitHub 限制、也让别人无法复现。
+# =============================================================================
+
+# ---------- Vivado 工程生成的目录 ----------
+.Xil/
+*.Xil/
+base.cache/
+*.cache/
+base.hw/
+*.hw/
+base.runs/
+*.runs/
+*.sim/
+*.gen/
+*.ip_user_files/
+ipshared/
+xsim.dir/
+*.sim/sim_1/behav/xsim/
+*.debug/
+*_dbg/
+
+# ---------- Vivado 生成的单文件 ----------
+*.jou
+*.backup.jou
+*.backup.log
+vivado.log
+vivado_*.log
+vivado_pid*.str
+build_*.log
+xelab.log
+xsim*.log
+webtalk*
+usage_statistics*
+*.dcp
+*.rpx
+*.ltx
+*.wdb
+*.wcfg
+*.pb
+*.svf
+*.str
+*.syr
+*.twr
+*.twx
+*.Xil
+*.zip
+
+# 注意：
+#   *.bit / *.hwh 故意【不】忽略 —— ready_to_test/ 与 pynq_overlay/ 里的
+#   base.bit + base.hwh 是上板实测过的那一对，别人不装 Vivado 也能直接跑。
+#   sim/ 与 build/ 下的 .log / .rpt 也不忽略 —— 它们是等价性证据与资源报告。
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+
+# ---------- 操作系统 / 编辑器 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+*.bak
+*.orig

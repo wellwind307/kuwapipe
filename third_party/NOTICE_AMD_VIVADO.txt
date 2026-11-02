@@ -1,0 +1,25 @@
+AMD / Xilinx Vivado IP — 使用说明（非许可全文）
+===============================================
+
+本工程使用 AMD Vivado 2025.2 及其标准 IP 完成综合与实现，相关 IP 包括但不限于：
+
+  processing_system7, axi_vdma, v_tc, v_axi4s_vid_out, v_vid_in_axi4s,
+  axi_gpio, axi_iic, axi_intc, axi_interconnect, axi_quad_spi, axi_timer,
+  axi_uartlite, axis_register_slice, blk_mem_gen, lmb_bram_if_cntlr,
+  lmb_v10, mdm, microblaze, proc_sys_reset, xadc_wiz, xlconcat,
+  xlconstant, xlslice, rgb2dvi(见 Digilent 许可), axi_dynclk(见 Digilent 许可)
+
+以及由 Vitis HLS 生成的：
+  median_blur_color, color_convert, pixel_pack, pixel_unpack
+
+这些 IP 的使用受 AMD 软件许可协议（Vivado/Vitis End User License Agreement）
+约束，许可文本不属于本队可再分发的范围，故本目录不收录其全文；使用者应自备
+合法授权的 AMD 工具链。
+
+关于再分发：
+  * 本工程不单独分发上述 IP 的源码（ipshared/、ip/、base.runs/、base.cache/、
+    .Xil/ 均为构建产物，不进入提交包）；
+  * 提交包中的 base.bit / base.hwh 为设计编译结果，其中包含上述 IP 的编译后逻辑。
+
+工程内这些文件头部保留的 "(c) Copyright ... Advanced Micro Devices, Inc." 声明
+未作任何删改。
