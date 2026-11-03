@@ -9,7 +9,7 @@
 | A1 | 完整工程文件与源码（RTL / HLS / PS 侧软件） | `src/base.xpr` + `src/base.srcs/`（自研 RTL 12 个模块、BD、`base.xdc`）+ `src/ip_repo_local/`（自研 IP 与所需 IP 包，全内置）+ `src/ps/kuwahara_ps.py`/`.ipynb` | ✅ |
 | A2 | 仿真或验证结果，说明功能正确性如何确认 | `sim/` 4 个自校验 testbench + 一键脚本；`sim/logs/` 6 份日志（全尺寸 384000/384000、采集 IP 91063 拍 0 失配、模式切换 13292 拍 0 失配）；`sim/verify_kuwahara.py` 可离线复跑（内部 300516/300516） | ✅ |
 | A3 | 综合与实现报告（资源、时钟频率、关键性能） | `build/synth_utilization.rpt`（本设计，2026-11-04 重跑综合）、`build/impl_utilization.rpt`、`build/impl_timing_summary.rpt`、`build/kw_timing.rpt`；`build/baseline/` 为加 Kuwahara 之前的历史基线 | ✅ |
-| A4 | 上板工程、运行脚本、**实测输出与参考结果的比对数据** | 比特流/hwh：`board/bitstream/`；脚本：`board/measure.py`（帧率 + 噪声地板 + 诊断）、`board/README.md` 有测量步骤 | 🟡 `board/media/` 仍为空，**需上板拍素材** |
+| A4 | 上板工程、运行脚本、**实测输出与参考结果的比对数据** | 比特流/hwh：`board/bitstream/`；脚本：`board/measure.py`（帧率 + 噪声地板 + 诊断）、`board/kuwahara_ps.ipynb`；实测输出：`data/` 里 4 张**处理/直通成对抓帧**（帧间差 10.5 / 6.0 LSB）+ `build/metrics.md` 的帧率/噪声/compare 数据 | ✅ 实物照/现场录屏可选（`board/media/`） |
 | A5 | 可复现的构建脚本 | `build/build_btn.tcl`、`build/package_capture_ip.tcl`（另有两个一次性 BD 脚本，复现不需要运行） | ✅ |
 | A6 | PS 侧软件（加载 Overlay、OV5640 初始化、抓帧） | `board/kuwahara_ps.ipynb`（Jupyter 主程序，**含真实上板输出**：抓帧图 + 耗时日志）；`src/ps/kuwahara_ps.py`（命令行版）与 `src/ps/kuwahara_ps.ipynb`（纯源码版）；均已按 DVI 限制改 640x480 | ✅ |
 
@@ -57,21 +57,19 @@
 |---|---|---|---|
 | 创新性与应用价值 | 30 | 中 | 报告已论证"实时保边平滑 + 整数逐位可复现"；仍建议补一句与已有 FPGA 卡通化方案的差异 |
 | 性能与资源优化效果 | 20 | 中 | 资源/吞吐有据；**基线对比非受控**（不同时间、不同工程目录），帧率只有读帧计数 |
-| 功能正确性与设计完整性 | 20 | 高 | 有 bit-exact 仿真 + 可复跑脚本；**板上实测素材待补** |
+| 功能正确性与设计完整性 | 20 | 高 | 有 bit-exact 仿真 + 可复跑脚本 + 处理/直通成对抓帧；仍建议补实物照/录屏 |
 | 大模型协作与技能包 | 15 | 高 | 13 节点协作记录 + 7 项技能包均已成文 |
-| 文档质量与可复现性 | 15 | 高 | 路径已统一、脚本已修到可直接跑；仓库地址待填 |
+| 文档质量与可复现性 | 15 | 高 | 路径已统一、脚本已修到可直接跑、仓库已同步 |
 
 ---
 
 ## 需要队伍确认/补齐的事项
 
-1. **板上实测素材**：`board/media/` 目前只有说明文件。需要处理模式、直通模式各一张同机位照片/视频，
-   外加一段按 PL_KEY0 切换（LED2 亮灭与画面同框）的录屏，命名见 `board/README.md` 第 4 节。
+1. **实物照 / 现场录屏（可选）**：板端**抓帧**已有 4 张（`data/proc_*.png` / `raw_*.png`，处理/直通成对）。
+   若想再补"显示器与开发板同框、按键切换过程"的素材，放 `board/media/`，命名见 `board/README.md` 第 4 节。
 2. **帧率重复测量**：40.05 fps 目前是单次记录，建议每个指标重复 3 次取中位数。
 3. **基线对比口径**：`build/baseline/` 是另一个工程（`base_2025_2_median`，2026-10-31）的构建结果，
    与本设计不是同一次受控对照。若要作为"优化前后对比"硬引用，建议在同一工程里关掉 Kuwahara 重综合一次。
 4. **静态时序仍未收敛**（100 MHz 域 WNS −0.571 ns / 107 个失败端点）：报告与 README 已如实写明，
    若还有时间，优先修 HLS IP 与外围路径；不建议把表述改成"时序通过"。
-5. **开源仓库同步**：远端 <https://github.com/wellwind307/kuwapipe> 里还是重排前的扁平布局，
-   需要把本包推上去（命令见 `README.md`「开源」，会保留提交历史）。
-6. **决赛海报模板**：需从大赛官网下载官方 PPT 模板。
+5. **决赛海报模板**：需从大赛官网下载官方 PPT 模板。

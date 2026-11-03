@@ -21,7 +21,7 @@ Overlay 并配置 VideoMode；板上按键（PL_KEY0）在「全处理 / 完全�
 | `sim/` | 4 个自校验 testbench + 3 个一键运行脚本（`run_kw_sim.bat`、`run_style_sim.bat`、`run_capture_sim.bat`）+ 位精确验证脚本 + `sim/logs/` 仿真日志 |
 | `build/` | 可复现构建脚本（`build_btn.tcl`、`package_capture_ip.tcl`）+ 综合与实现报告（`synth_utilization.rpt`、`impl_*.rpt`）+ 基线报告（`build/baseline/`）+ 指标汇总 `metrics.md` + 报告出处说明 `build/README.md` |
 | `board/` | 比特流/hwh（`board/bitstream/`）+ 上板运行与测量脚本（`measure.py`、`probe.py`、`pynq_read_modes.py`）+ PS 侧 Jupyter 主程序 `board/kuwahara_ps.ipynb`（含真实上板输出）+ 实测素材目录 `board/media/` |
-| `data/` | golden 参考模型 + 测试图 + 对比图 |
+| `data/` | golden 参考模型 + 测试图 + 对比图 + **板上实测抓帧**（`proc_*.png` / `raw_*.png` 处理/直通成对对照） |
 | `skill/` | 技能包（7 项通用技能 S1–S7，每项含适用场景/用法/效果/失效条件/坑） |
 | `report/` | 设计报告 `design_report.docx` + 大模型协作记录 `LLM_COLLAB_LOG.md` |
 | `third_party/` | 第三方许可全文（MIT / BSD-3 / AMD / 正点原子说明），配合 `THIRD_PARTY_NOTICES.md` |

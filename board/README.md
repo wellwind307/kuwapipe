@@ -74,6 +74,7 @@ python3 measure.py noise --interval 0.5
 |---|---|---|
 | 全尺寸 800x480 密集流 | `../sim/logs/kw_sim_full800x480.log` | captured 384000 / 384000，mismatch 0 |
 | 与 golden 逐位比对 | `../sim/verify_kuwahara.py` | 内部像素 0 LSB |
+| 处理 / 直通成对抓帧 | `../data/`（`proc_*.png` / `raw_*.png`） | 同场景帧间差 10.5 / 6.0 LSB，平滑度差约 2 倍 → 切换确实生效 |
 
 ### 3.（可选）诊断：板端输出更像哪种模型
 
