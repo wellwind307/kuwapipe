@@ -12,6 +12,7 @@
 *.py      text
 *.md      text
 *.json    text
+*.ipynb   text
 *.qsf     text
 
 # Windows 批处理必须用 CRLF，否则个别情况下 cmd 解析异常
@@ -33,7 +34,8 @@
 #   本仓库里 IP 打包产生的 .xml / .html 数量远多于 RTL，GitHub 会把项目语言
 #   误标成 HTML。把第三方 IP 仓库与 BD 自动生成的 IP 目录标为 vendored /
 #   generated，语言统计就会回到 Verilog / VHDL（真正的源码）。
+#   （目录已按竞赛结构重排：ip_repo_local / base.srcs 现在都在 src/ 下）
 # ---------------------------------------------------------------------------
-ip_repo_local/**                        linguist-vendored=true
-base.srcs/sources_1/bd/base/ip/**       linguist-generated=true
-base.srcs/sources_1/bd/mref/**          linguist-generated=true
+src/ip_repo_local/**                     linguist-vendored=true
+src/base.srcs/sources_1/bd/base/ip/**    linguist-generated=true
+src/base.srcs/sources_1/bd/mref/**       linguist-generated=true

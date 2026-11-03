@@ -35,7 +35,7 @@ from pynq.lib.video import PIXEL_RGB, VideoMode
 W, H, BPP = 640, 480, 24
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_BIT = os.path.normpath(os.path.join(HERE, "..", "base.bit"))
+DEFAULT_BIT = os.path.normpath(os.path.join(HERE, "bitstream", "base.bit"))
 GOLDEN = os.path.normpath(os.path.join(HERE, "..", "data", "style_cartoon_640x480.py"))
 
 

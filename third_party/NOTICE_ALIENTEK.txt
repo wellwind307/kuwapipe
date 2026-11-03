@@ -7,17 +7,17 @@
 
 处理结果：**已替换为自研实现，不再使用该 IP。**
 
-  自研 RTL : base.srcs/sources_1/new/ov5640_capture.v
-  自研 IP  : ip_repo_local/ov5640_capture/  (user:ip:ov5640_capture:1.0)
+  自研 RTL : src/base.srcs/sources_1/new/ov5640_capture.v
+  自研 IP  : src/ip_repo_local/ov5640_capture/  (user:ip:ov5640_capture:1.0)
   BD 单元  : /video/camera_in/frontend/ov5640_capture_0（原 cmos_capture_data_0 已删除）
 
 等价性证据：
-  vs_sim/tb_ov5640_capture.v —— 原 IP 与自研模块同激励并排运行，逐拍比较全部输出
+  sim/tb_ov5640_capture.v —— 原 IP 与自研模块同激励并排运行，逐拍比较全部输出
   compared cycles : 91063
   mismatches      : 0
   RESULT          : PASS
 
 残留说明：
-  base.srcs/sources_1/bd/base/ipshared/949d/SRC/cmos_capture_data.v 为替换前 Vivado 自动
-  拷贝到工程内的旧源码，现已不参与设计。打包提交前可直接删除该目录（删除后本工程仍可综合，
-  因为 BD 已不再引用该 IP）。
+  src/base.srcs/sources_1/bd/base/ipshared/949d/SRC/cmos_capture_data.v 为替换前 Vivado 自动
+  拷贝到工程内的旧源码，现已不参与设计；本提交包中**该目录已删除**（删除后工程仍可综合，
+  因为 BD 已不再引用该 IP，`ipshared/` 会在下次构建时由 Vivado 重新生成）。

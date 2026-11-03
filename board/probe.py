@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """板上诊断：一次试完几种“板端输出到底是什么”的可能，定位比对口径。
 
-用法：
-    python3 measure.py probe
+用法（在 board/ 目录下，需先用 bitstream/base.bit 上板）：
+    python3 probe.py
 
 会采集两张图（处理模式 / 直通模式），然后打印：
   1. 两张图的通道均值、是否被量化（低 4 位恒为 0）

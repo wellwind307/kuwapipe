@@ -4,6 +4,7 @@
 #  原则：只跟踪"源码 + 文档 + 已验证的成品"，构建产物一律不入库。
 #  Vivado 的 .runs/.cache/.hw/.Xil 一跑综合就是几百 MB，且与本机路径绑定，
 #  提交进来既超 GitHub 限制、也让别人无法复现。
+#  目录结构为 src/ sim/ build/ board/ data/ skill/ report/。
 # =============================================================================
 
 # ---------- Vivado 工程生成的目录 ----------
@@ -23,6 +24,15 @@ xsim.dir/
 *.sim/sim_1/behav/xsim/
 *.debug/
 *_dbg/
+
+# ---------- 仿真临时目录（可再生成） ----------
+sim/work/
+sim/xsim.dir/
+sim/_sim_ov5640/
+sim/_ref/
+sim/tb_full_in.hex
+sim/tb_full_exp.hex
+board/captures/
 
 # ---------- Vivado 生成的单文件 ----------
 *.jou
@@ -51,9 +61,10 @@ usage_statistics*
 *.zip
 
 # 注意：
-#   *.bit / *.hwh 故意【不】忽略 —— ready_to_test/ 与 pynq_overlay/ 里的
-#   base.bit + base.hwh 是上板实测过的那一对，别人不装 Vivado 也能直接跑。
-#   sim/ 与 build/ 下的 .log / .rpt 也不忽略 —— 它们是等价性证据与资源报告。
+#   *.bit / *.hwh 故意【不】忽略 —— board/bitstream/ 里的 base.bit + base.hwh
+#   是上板实测过的那一对，别人不装 Vivado 也能直接跑。
+#   sim/logs/ 与 build/*.rpt 也不忽略 —— 它们是等价性证据与资源/时序报告。
+#   *.log 不做全局忽略，只忽略构建时产生的 vivado*/xelab/xsim 日志。
 
 # ---------- Python ----------
 __pycache__/

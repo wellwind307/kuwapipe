@@ -2,12 +2,20 @@
 
 | 文件 | 说明 |
 |---|---|
-| `../ready_to_test/base.bit` | 比特流（Vivado 2025.2 生成） |
-| `../ready_to_test/base.hwh` | 硬件描述，交给 PYNQ 解析 |
-| `../pynq_overlay/` | 同上，PYNQ 流程的副本 |
-| `../pynq_read_modes.py` | PYNQ 侧读取/切换模式的脚本 |
-| kuwahara_ps.py / kuwahara_ps.ipynb | **PS 侧主控制脚本**：加载 Overlay → 初始化 OV5640(800x480) → 直通 → 抓帧 → 硬件自检 |
-| `../verify_kuwahara.py`、`../verify_style.py` | 与板上输出做比对的离线脚本 |
+| `bitstream/base.bit` + `base.hwh` | 上板用的比特流 + 硬件描述（Vivado 2025.2 生成），**必须成对使用** |
+| `measure.py` | **板上实测脚本**（主工具）：`fps` / `noise` / `compare` 三种模式 |
+| `probe.py` | 板端诊断脚本：判断输出更像哪种模型，**仅供排查、不作验收判据** |
+| `pynq_read_modes.py` | 板端诊断脚本：分别抓「处理 / 直通」两模式画面并存对比图 |
+| `PS_CODE_NOTES.md` | PS 侧代码的来源、逐项删改记录、运行环境依赖与未上板验证点 |
+| `kuwahara_ps.ipynb` | **PS 侧主控制程序（Jupyter 版，带真实上板输出）**：加载 Overlay → OV5640 初始化 → 640×480 视频通路 → 抓帧存图 → 硬件自检 → 按键状态 → 附一段 numpy Kuwahara 软件对照（实测 ≈5.2 s/帧）。文件内保存了当时跑出来的抓帧图和日志 |
+| `media/` | 实测照片 / 视频（**目前为空，需要你补**，命名见第 4 节） |
+| `../src/ps/kuwahara_ps.py` / `.ipynb` | 同上的**纯源码版**（`.py` 命令行脚本 + 清空输出的 `.ipynb`，便于看 diff） |
+| `../sim/verify_kuwahara.py`、`../sim/verify_style.py` | 离线位精确比对脚本（在 PC 上跑，不在板上） |
+
+> 除 `../sim/verify_*.py` 外，本目录的 `.py` 都要在**板上（PYNQ）**运行；从 `board/` 目录启动，
+> 默认比特流路径为 `bitstream/base.bit`（`measure.py`、`pynq_read_modes.py` 已按此设置）。
+> `kuwahara_ps.ipynb` 例外：它默认 `./base.bit`，**运行时把 `bitstream/base.bit` 与 `base.hwh`
+> 拷到 notebook 同目录**即可（PYNQ 按同名找 `.hwh`）。
 
 ## 上板步骤（PYNQ）
 
@@ -47,7 +55,7 @@ python measure.py fps --seconds 10
 ### 2. 测“噪声地板”（说明为什么板上不做逐像素比对）
 
 ```bash
-python3 measure.py noise --seconds 2
+python3 measure.py noise --interval 0.5
 ```
 
 同一场景连抓 4 帧，打印相邻帧的 mean / max / 差异像素比例。**这个数就是板上逐像素比对的下限**：
@@ -64,8 +72,8 @@ python3 measure.py noise --seconds 2
 
 | 证据 | 位置 | 结果 |
 |---|---|---|
-| 全尺寸 800x480 密集流 | `sim/kw_sim_full800x480.log` | captured 384000 / 384000，mismatch 0 |
-| 与 golden 逐位比对 | `verify_kuwahara.py` | 内部像素 0 LSB |
+| 全尺寸 800x480 密集流 | `../sim/logs/kw_sim_full800x480.log` | captured 384000 / 384000，mismatch 0 |
+| 与 golden 逐位比对 | `../sim/verify_kuwahara.py` | 内部像素 0 LSB |
 
 ### 3.（可选）诊断：板端输出更像哪种模型
 
@@ -76,18 +84,18 @@ python3 measure.py compare
 需要按一次 PL_KEY0。它打印 `raw vs proc` 的平均差（应明显 >0，说明切换生效）以及
 `proc vs golden` 的统计，**仅供排查，不作为 PASS/FAIL 判据**。
 
-### 3. 拍“实测输出”素材
+### 4. 拍“实测输出”素材
 
 | 素材 | 要求 | 建议文件名 |
 |---|---|---|
-| 处理模式照片 | 同机位、同场景，能看清保边效果 | `board/media/proc_01.jpg` |
-| 直通模式照片 | 同机位对照 | `board/media/raw_01.jpg` |
-| 处理模式视频 | 10 s 左右，含缓慢移动镜头 | `board/media/proc_01.mp4` |
-| 直通模式视频 | 同上 | `board/media/raw_01.mp4` |
-| 按键切换视频 | 按 PL_KEY0，LED2 亮灭与画面切换同框 | `board/media/switch_01.mp4` |
+| 处理模式照片 | 同机位、同场景，能看清保边效果 | `media/proc_01.jpg` |
+| 直通模式照片 | 同机位对照 | `media/raw_01.jpg` |
+| 处理模式视频 | 10 s 左右，含缓慢移动镜头 | `media/proc_01.mp4` |
+| 直通模式视频 | 同上 | `media/raw_01.mp4` |
+| 按键切换视频 | 按 PL_KEY0，LED2 亮灭与画面切换同框 | `media/switch_01.mp4` |
 
 拍照时把 **LED2 状态一起拍进去**，证明当前是哪种模式。
 
-### 4. 填表
+### 5. 填表
 
-把测得的数字填进 `build/metrics.md`（已给出表格与计算值）。建议每个指标重复 3 次取中位数。
+把测得的数字填进 `../build/metrics.md`（已给出表格与计算值）。建议每个指标重复 3 次取中位数。
