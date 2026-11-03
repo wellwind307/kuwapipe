@@ -23,7 +23,7 @@ Overlay 并配置 VideoMode；板上按键（PL_KEY0）在「全处理 / 完全�
 | `board/` | 比特流/hwh（`board/bitstream/`）+ 上板运行与测量脚本（`measure.py`、`probe.py`、`pynq_read_modes.py`）+ PS 侧 Jupyter 主程序 `board/kuwahara_ps.ipynb`（含真实上板输出）+ 实测素材目录 `board/media/` |
 | `data/` | golden 参考模型 + 测试图 + 对比图 + **板上实测抓帧**（`proc_*.png` / `raw_*.png` 处理/直通成对对照） |
 | `skill/` | 技能包（7 项通用技能 S1–S7，每项含适用场景/用法/效果/失效条件/坑） |
-| `report/` | 设计报告 `design_report.docx` + 大模型协作记录 `LLM_COLLAB_LOG.md` |
+| `report/` | 设计报告 **`design_report.pdf`（定稿版式，31 页，Word 打印导出）** + `design_report.docx`（可编辑源文件，与 PDF 同一内容）+ 大模型协作记录 `LLM_COLLAB_LOG.md` |
 | `third_party/` | 第三方许可全文（MIT / BSD-3 / AMD / 正点原子说明），配合 `THIRD_PARTY_NOTICES.md` |
 
 > 早期开发是扁平布局（`ready_to_test/`、`pynq_overlay/`、`vs_sim/`、工程根 `*.tcl`）；
